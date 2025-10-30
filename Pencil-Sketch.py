@@ -41,3 +41,17 @@ def display_image(img, original):
     label = original_image_label if original else sketch_image_label
     label.config(image= img_tk)
     label.image = img_tk
+
+
+def save_sketch():
+    if images["sketch"] is None:
+        messagebox.showerror("Error", "No sketch to save.")
+        return
+    
+    sketch_filepath = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
+    if not sketch_filepath:
+        return
+    
+    #save PIl image (sketch) to file
+    images["sketch"].save(sketch_filepath, "PNG")
+    messagebox.showinfo("Saved", "Sketch saved to {}".format(sketch_filepath))
