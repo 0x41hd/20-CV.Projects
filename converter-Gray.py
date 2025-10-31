@@ -8,7 +8,7 @@ def open_file():
     file_path = filedialog.askopenfilename(
         filetypes=[("Image files", "*.jpg* .jpeg* .png* .bmp* .tiff")])
     if file_path:
-        convert_to_graysacale(file_path)
+        convert_to_grayscale(file_path)
 
 
 def convert_to_grayscale(image_path):
@@ -23,7 +23,7 @@ def convert_to_grayscale(image_path):
 
 def setup_ui(root):
     root.title("Image Grayscale Converter")
-    root.geometry("300 x 150")
+    root.geometry("300x150")
     root.resizable(False, False)
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
@@ -34,3 +34,9 @@ def setup_ui(root):
 
     open_button = Button(root, text="Open Image", command=open_file)
     open_button.grid(row=1, column=0, padx=10, pady=10, sticky=S+E+W)
+
+
+if __name__ == "__main__":
+    root = Tk()
+    setup_ui(root)
+    root.mainloop()
