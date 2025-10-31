@@ -19,3 +19,18 @@ def convert_to_grayscale(image_path):
     cv2.imshow("Grayscale Image", gray_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+
+def setup_ui(root):
+    root.title("Image Grayscale Converter")
+    root.geometry("300 x 150")
+    root.resizable(False, False)
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
+
+    label = Label(
+        root, text="Select an image to Convert to Grayscale", wraplength=250)
+    label.grid(row=0, column=0, padx=10, pady=10, sticky=N)
+
+    open_button = Button(root, text="Open Image", command=open_file)
+    open_button.grid(row=1, column=0, padx=10, pady=10, sticky=S+E+W)
