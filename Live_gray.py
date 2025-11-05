@@ -39,3 +39,10 @@ class LiveGreyscaleFilter:
             cv2.waitKey(20)
 
         self.root.after(10, self.process_frames)
+
+    def on_closing(self):
+        self.run_filter = False
+        if self.cap.isOpened():
+            self.cap.release()
+        cv2.destroyAllWindows()
+        self.root.destroy()
