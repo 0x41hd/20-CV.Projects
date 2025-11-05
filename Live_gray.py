@@ -10,3 +10,12 @@ class LiveGreyscaleFilter:
         self.run_filter = False
         self.setup_ui()
         self.cap = cv2.VideoCapture(0)
+
+    def setup_ui(self):
+        self.start_button = ttk.Button(
+            self.root, text="Start", command=self.start_filter)
+        self.start_button.pack(pady=10)
+
+        self.stop_button = ttk.Button(
+            self.root, text="Stop", command=self.stop_filter)
+        self.stop_button.pack(pady=10)
