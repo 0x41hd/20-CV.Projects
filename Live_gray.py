@@ -19,3 +19,11 @@ class LiveGreyscaleFilter:
         self.stop_button = ttk.Button(
             self.root, text="Stop", command=self.stop_filter)
         self.stop_button.pack(pady=10)
+
+    def start_filter(self):
+        self.run_filter = True
+        self.process_frames()
+
+    def stop_filter(self):
+        self.run_filter = False
+        cv2.destroyAllWindows()
