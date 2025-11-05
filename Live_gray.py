@@ -27,3 +27,15 @@ class LiveGreyscaleFilter:
     def stop_filter(self):
         self.run_filter = False
         cv2.destroyAllWindows()
+
+    def process_frames(self):
+        if not self.run_filter:
+            return
+
+        ret, frame = self.cap.read()
+        if ret:
+            grey_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            cv2.imshow("Live Greyscale Filter", grey_frame)
+            cv2.waitKey(20)
+
+        self.root.after(10, self.process_frames)
