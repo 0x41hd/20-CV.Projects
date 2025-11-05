@@ -4,7 +4,7 @@ from tkinter import ttk
 
 
 class LiveGreyscaleFilter:
-    def __init__(Self, root):
+    def __init__(self, root):
         self.root = root
         self.root.title("Live Greyscale Filter")
         self.run_filter = False
@@ -46,3 +46,10 @@ class LiveGreyscaleFilter:
             self.cap.release()
         cv2.destroyAllWindows()
         self.root.destroy()
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = LiveGreyscaleFilter(root)
+    root.protocol("WM_DELETE_WINDOW", app.on_closing)
+    root.mainloop()
