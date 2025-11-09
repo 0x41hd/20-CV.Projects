@@ -39,3 +39,28 @@ def feature_matching():
     cv2.imshow('Feature Matching', img_matches)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+
+root = Tk()
+root.title('Feature Matching')
+
+img1 = None
+img2 = None
+
+btn_select_image1 = Button(root, text="Select Image 1", command=select_image)
+btn_select_image1.pack()
+
+label_img1 = Label(root, text="Image 1: Not selected")
+label_img1.pack()
+
+btn_select_image2 = Button(root, text="Select Image 2", command=select_image_2)
+btn_select_image2.pack()
+
+label_img2 = Label(root, text="Image 2: Not selected")
+label_img2.pack()
+
+btn_match_features = Button(
+    root, text="Match Features", command=feature_matching)
+btn_match_features.pack()
+
+root.mainloop()
