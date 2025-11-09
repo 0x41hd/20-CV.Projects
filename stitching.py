@@ -39,3 +39,11 @@ def stitch_images():
 
     display_image(pano)
     messagebox.showinfo("Success", "Images stitched successfully.")
+
+
+def display_image(cv_image):
+    cv_image_rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
+    pil_image = Image.fromarray(cv_image_rgb)
+    imgtk = ImageTk.PhotoImage(image=pil_image)
+    panel.config(image=imgtk)
+    panel.image = imgtk
