@@ -47,3 +47,21 @@ def display_image(cv_image):
     imgtk = ImageTk.PhotoImage(image=pil_image)
     panel.config(image=imgtk)
     panel.image = imgtk
+
+
+root = tk.Tk()
+root.title("Image Stitching with OpenCV")
+
+# UI Variables
+image_paths = []
+
+# UI Elements
+open_button = tk.Button(root, text="Open Images", command=open_files)
+stitch_button = tk.Button(root, text="Stitch Images", command=stitch_images)
+panel = tk.Label(root)
+
+open_button.pack(pady=10)
+stitch_button.pack(pady=10)
+panel.pack(padx=10, pady=10)
+
+root.mainloop()
