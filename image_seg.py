@@ -40,3 +40,16 @@ def display_segmented_image(segmented_image):
         segmented_image, cv2.COLOR_RGB2BGR))
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+
+app = tk.Tk()
+app.title("Image Segmentation Tool")
+
+label = Label(app, text="Select an image to perform segmentation.")
+label.pack(pady=10)
+
+select_button = Button(app, text="Select Image", command=select_image)
+select_button.pack(pady=10)
+
+app.geometry("300x150")
+app.mainloop()
