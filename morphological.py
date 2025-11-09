@@ -51,3 +51,32 @@ def apply_transformations(*args):
     cv2.imshow('Image', img_display)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+
+# Dropdown menu options for morphological operations
+OPTIONS = ["Erosion", "Dilation", "Opening",
+           "Closing", "Gradient", "Top Hat", "Black Hat"]
+
+# Dropdown variable and menu
+var = tk.StringVar(root)
+var.set(OPTIONS[0])  # Default value
+operation_menu = tk.OptionMenu(root, var, *OPTIONS)
+operation_menu.pack()
+
+# Slider for kernel size
+kernel_scale = Scale(root, from_=1, to=20,
+                     orient=HORIZONTAL, label="Kernel Size")
+kernel_scale.set(5)
+kernel_scale.pack()
+
+# Load Image Button
+load_button = Button(root, text="Load Image", command=load_image)
+load_button.pack()
+
+# Update image on transformation parameters change
+kernel_scale.bind("<ButtonRelease-1>", lambda x: apply_transformations())
+var.trace("w", apply_transformations)
+
+# Start the application
+root.mainloop()
+cv2.destroyAllWindows()
