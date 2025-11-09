@@ -63,3 +63,9 @@ class LineDetectionApp:
         cv2.imshow('Detected Lines', image)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    root = Tk()
+    app = LineDetectionApp(root)
+    root.mainloop()
