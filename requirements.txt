@@ -1,0 +1,10 @@
+opencv-python
+opencv-contrib-python
+numpy
+matplotlib
+mediapipe
+pillow
+pytesseract
+scikit-image
+tensorflow
+scipy
